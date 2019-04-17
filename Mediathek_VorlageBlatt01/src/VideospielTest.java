@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class VideospielTest 
 {	
-	private static final String BEZEICHNER = "B2";
+	private static final String KOMMENTAR = "B2";
 	
 	private static final String TITEL = "Ballermann 2";
 	
@@ -21,8 +21,8 @@ public class VideospielTest
 	 */
 	public VideospielTest()
 	{
-		_spiel1 = new Videospiel(TITEL, BEZEICHNER, PLATTFORM);
-		_spiel2 = new Videospiel(TITEL, BEZEICHNER, PLATTFORM);
+		_spiel1 = new Videospiel(TITEL, KOMMENTAR, PLATTFORM);
+		_spiel2 = new Videospiel(TITEL, KOMMENTAR, PLATTFORM);
 	}
 
 	@Test
@@ -35,9 +35,9 @@ public class VideospielTest
 	@Test
 	public void richtigInitialisiert()
 	{
-		assertEquals(BEZEICHNER, _spiel1.getMedienBezeichnung());
+		assertEquals(KOMMENTAR, _spiel1.getKommentar());
 		assertEquals(TITEL, _spiel1.getTitel());
-		assertEquals(PLATTFORM, _spiel1.getKommentar());
+		assertEquals(PLATTFORM, _spiel1.getMedienBezeichnung());
 	}
 	
 
