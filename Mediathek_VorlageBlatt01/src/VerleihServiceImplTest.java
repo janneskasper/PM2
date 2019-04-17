@@ -66,7 +66,6 @@ public class VerleihServiceImplTest
     @Test
     public void testeVerleihenAn()
     {	
-    	new VerleihServiceImplTest();
     	_verleihService.verleiheAn(_brian, _medienbestand.getMedien(), Datum.get(15, 4, 2019));
     	assertTrue(_verleihService.istVerliehen(_bad));	
     }
@@ -74,7 +73,6 @@ public class VerleihServiceImplTest
     @Test
     public void testeNimmZurueck()
     {
-    	new VerleihServiceImplTest();
     	_verleihService.verleiheAn(_brian, _medienbestand.getMedien(), Datum.get(15, 4, 2019));
     	assertTrue(_verleihService.istVerliehen(_bad));	
     	_verleihService.nimmZurueck(_medienbestand.getMedien(), Datum.get(16, 4, 2019));

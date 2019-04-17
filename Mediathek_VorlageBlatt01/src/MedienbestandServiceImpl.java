@@ -29,30 +29,17 @@ class MedienbestandServiceImpl extends AbstractObservableService
         _medienbestand = new ArrayList<Medium>(medien);
     }
 
-    /**
-     * Entfernt ein Medium aus dem Medienbestand, z.B. wenn es verloren gegangen
-     * ist oder so veraltet, dass es von den Mediathek-Kunden nicht mehr
-     * nachgefragt wird.
-     * 
-     * @param medium Ein zu entfernendes Medium
-     * 
-     * @require enthaeltMedium(medium)
-     * @require medium != null
-     * @require !medienbestand.isEmpty()
-     */
     @Override
     public void entferneMedium(Medium medium)
     {
     	assert enthaeltMedium(medium) : "Vorbedingung verletzt: enthaeltMedium(medium))";
-    	assert !_medienbestand.isEmpty() : "Vorbedingung verletzt: !medien.isEmpty()";
-    	assert medium != null : "Vorbedingung verletzt: medium != null";
     	
         _medienbestand.remove(medium);
 
         informiereUeberAenderung();
     }
 
-    /**
+    /*
      * Gibt Auskunft, ob ein Medium im Medienbestand enthalten ist.
      * 
      * @param medium Ein Medium
@@ -69,46 +56,23 @@ class MedienbestandServiceImpl extends AbstractObservableService
         return _medienbestand.contains(medium);
     }
 
-    /**
-     * Fügt ein weiteres, neu angeschafftes Medium in den Bestand ein. Jedes
-     * Exemplar im Bestand repräsentiert ein real existierendes Medium. Ist ein
-     * Medium mehrfach angeschafft worden, so muss ein weiteres Exemplar mit
-     * denselben Eigenschaften eingepflegt werden.
-     * 
-     * @param neuesMedium Ein neues Medium
-     * 
-     * @require	!enthaeltMedium(medium)
-     * @require neuesMedium != null
-     */
     @Override
     public void fuegeMediumEin(Medium neuesMedium)
     {
     	assert !enthaeltMedium(neuesMedium) : "Vorbedingung verletzt: !enthaeltMedium(neuesMedium)";
-    	assert neuesMedium != null : "Vorbedingung verletzt: neuesMedium != null";
     	
         _medienbestand.add(neuesMedium);
 
         informiereUeberAenderung();
     }
 
-    /**
-     * Liefert alle vorhandenen Medien.
-     * 
-     * @return Eine Kopie der Liste mit allen vorhandenen Medien.
-     * 
-     * @ensure return != null
-     */
-    @Override
+   @Override
     public List<Medium> getMedien()
     {
         return new ArrayList<Medium>(_medienbestand);
     }
 
-    /**
-     * Informiert diesen Service darüber, dass Medien von einem Werkzeug
-     * geändert wurden. Eine Implementation wird daraufhin wahrscheinlich alle
-     * ServiceBeobachter darüber informieren.
-     */
+    
     @Override
     public void medienWurdenGeaendert()
     {

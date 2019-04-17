@@ -79,7 +79,7 @@ class Videospiel implements Medium
      */
     public String getMedienBezeichnung()
     {
-    	return _plattform;
+    	return "Videospiel";
     }
     
     /**

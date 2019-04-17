@@ -37,7 +37,8 @@ public class VideospielTest
 	{
 		assertEquals(KOMMENTAR, _spiel1.getKommentar());
 		assertEquals(TITEL, _spiel1.getTitel());
-		assertEquals(PLATTFORM, _spiel1.getMedienBezeichnung());
+		assertEquals(PLATTFORM, _spiel1.getPlattform());
+		assertEquals("Videospiel", _spiel1.getMedienBezeichnung());
 	}
 	
 
